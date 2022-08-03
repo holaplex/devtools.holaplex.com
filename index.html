@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Dev Tools - Holaplex</title>
+		<meta name="description" content="Build better apps on Solana" />
+		<meta name="referrer" content="same-origin" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+		<style>
+			.anim {
+				visibility: hidden;
+			}
+		</style>
+		<link rel="preload" href="css/Ubuntu-Bold.woff2" as="font" crossorigin />
+		<style>
+			html,
+			body {
+				-webkit-text-zoom: reset !important;
+			}
+			@media (min-width: 360px) and (max-width: 374px) {
+				body {
+					zoom: 1.125;
+				}
+			}
+			@media (min-width: 375px) and (max-width: 389px) {
+				body {
+					zoom: 1.17188;
+				}
+			}
+			@media (min-width: 390px) and (max-width: 410px) {
+				body {
+					zoom: 1.21875;
+				}
+			}
+			@media (min-width: 411px) and (max-width: 427px) {
+				body {
+					zoom: 1.29375;
+				}
+			}
+			@media (min-width: 428px) and (max-width: 479px) {
+				body {
+					zoom: 1.3375;
+				}
+			}
+			@font-face {
+				font-display: block;
+				font-family: "Ubuntu";
+				src: url("css/Ubuntu-Bold.woff2") format("woff2"), url("css/Ubuntu-Bold.woff") format("woff");
+				font-weight: 700;
+			}
+			@font-face {
+				font-display: block;
+				font-family: "Ubuntu";
+				src: url("css/Ubuntu-Regular.woff2") format("woff2"), url("css/Ubuntu-Regular.woff") format("woff");
+				font-weight: 400;
+			}
+			@font-face {
+				font-display: block;
+				font-family: "Lato";
+				src: url("css/Lato-Regular.woff2") format("woff2"), url("css/Lato-Regular.woff") format("woff");
+				font-weight: 400;
+			}
+			body > div {
+				font-size: 0;
+			}
+			p,
+			span,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			a,
+			li {
+				margin: 0;
+				word-spacing: normal;
+				word-wrap: break-word;
+				-ms-word-wrap: break-word;
+				pointer-events: auto;
+				-ms-text-size-adjust: none !important;
+				-moz-text-size-adjust: none !important;
+				-webkit-text-size-adjust: none !important;
+				text-size-adjust: none !important;
+				max-height: 10000000px;
+			}
+			sup {
+				font-size: inherit;
+				vertical-align: baseline;
+				position: relative;
+				top: -0.4em;
+			}
+			sub {
+				font-size: inherit;
+				vertical-align: baseline;
+				position: relative;
+				top: 0.4em;
+			}
+			ul {
+				display: block;
+				word-spacing: normal;
+				word-wrap: break-word;
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+				-moz-padding-start: 0;
+				-khtml-padding-start: 0;
+				-webkit-padding-start: 0;
+				-o-padding-start: 0;
+				-padding-start: 0;
+				-webkit-margin-before: 0;
+				-webkit-margin-after: 0;
+			}
+			li {
+				display: block;
+				white-space: normal;
+			}
+			li p {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-o-user-select: none;
+				user-select: none;
+			}
+			form {
+				display: inline-block;
+			}
+			a {
+				text-decoration: inherit;
+				color: inherit;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			}
+			textarea {
+				resize: none;
+			}
+			.shm-l {
+				float: left;
+				clear: left;
+			}
+			.shm-r {
+				float: right;
+				clear: right;
+			}
+			.btf {
+				display: none;
+			}
+			.plyr {
+				min-width: 0 !important;
+			}
+			html {
+				font-family: sans-serif;
+			}
+			body {
+				font-size: 0;
+				margin: 0;
+			}
+			audio,
+			video {
+				display: inline-block;
+				vertical-align: baseline;
+			}
+			audio:not([controls]) {
+				display: none;
+				height: 0;
+			}
+			[hidden],
+			template {
+				display: none;
+			}
+			a {
+				background: 0 0;
+				outline: 0;
+			}
+			b,
+			strong {
+				font-weight: 700;
+			}
+			dfn {
+				font-style: italic;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-size: 1em;
+				line-height: 1;
+				margin: 0;
+			}
+			img {
+				border: 0;
+			}
+			svg:not(:root) {
+				overflow: hidden;
+			}
+			button,
+			input,
+			optgroup,
+			select,
+			textarea {
+				color: inherit;
+				font: inherit;
+				margin: 0;
+			}
+			button {
+				overflow: visible;
+			}
+			button,
+			select {
+				text-transform: none;
+			}
+			button,
+			html input[type="button"],
+			input[type="submit"] {
+				-webkit-appearance: button;
+				cursor: pointer;
+				box-sizing: border-box;
+				white-space: normal;
+			}
+			input[type="text"],
+			input[type="password"],
+			input[type="email"],
+			input[type="date"],
+			input[type="number"],
+			textarea {
+				-webkit-appearance: none;
+				appearance: none;
+				box-sizing: border-box;
+			}
+			button[disabled],
+			html input[disabled] {
+				cursor: default;
+			}
+			button::-moz-focus-inner,
+			input::-moz-focus-inner {
+				border: 0;
+				padding: 0;
+			}
+			input {
+				line-height: normal;
+			}
+			input[type="checkbox"],
+			input[type="radio"] {
+				box-sizing: border-box;
+				padding: 0;
+			}
+			input[type="number"]::-webkit-inner-spin-button,
+			input[type="number"]::-webkit-outer-spin-button {
+				height: auto;
+			}
+			input[type="search"] {
+				-webkit-appearance: textfield;
+				-moz-box-sizing: content-box;
+				-webkit-box-sizing: content-box;
+				box-sizing: content-box;
+			}
+			input[type="search"]::-webkit-search-cancel-button,
+			input[type="search"]::-webkit-search-decoration {
+				-webkit-appearance: none;
+			}
+			textarea {
+				overflow: auto;
+				box-sizing: border-box;
+				border-color: #ddd;
+			}
+			optgroup {
+				font-weight: 700;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			td,
+			th {
+				padding: 0;
+			}
+			blockquote {
+				margin-block-start: 0;
+				margin-block-end: 0;
+				margin-inline-start: 0;
+				margin-inline-end: 0;
+			}
+			:-webkit-full-screen-ancestor:not(iframe) {
+				-webkit-clip-path: initial !important;
+			}
+			html {
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			@-webkit-keyframes fadeInUp {
+				from {
+					opacity: 0;
+					-webkit-transform: translate3d(0, 100%, 0);
+				}
+				to {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0, 0);
+				}
+			}
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translate3d(0, 100%, 0);
+				}
+				to {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+			.fadeInUp {
+				-webkit-animation-name: fadeInUp;
+				animation-name: fadeInUp;
+			}
+			.animated {
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+			.animated.infinite {
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+			}
+			@-webkit-keyframes slideInUp {
+				from {
+					-webkit-transform: translate3d(0, 100%, 0);
+					visibility: visible;
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+				}
+			}
+			@keyframes slideInUp {
+				from {
+					transform: translate3d(0, 100%, 0);
+					visibility: visible;
+				}
+				to {
+					transform: translate3d(0, 0, 0);
+				}
+			}
+			.slideInUp {
+				-webkit-animation-name: slideInUp;
+				animation-name: slideInUp;
+			}
+			#b {
+				background-color: #fff;
+			}
+			.v8 {
+				display: block;
+				vertical-align: top;
+			}
+			.ps44 {
+				margin-top: 0;
+				top: 0;
+				position: -webkit-sticky;
+				position: -moz-sticky;
+				position: -o-sticky;
+				position: -ms-sticky;
+				position: sticky;
+			}
+			.s55 {
+				width: 100%;
+				min-width: 960px;
+				min-height: 69px;
+			}
+			.c42 {
+				z-index: 1;
+				pointer-events: none;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				border-radius: 0;
+			}
+			.c43 {
+				position: absolute;
+				border: 0;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				border-radius: 0;
+				background-image: -webkit-gradient(linear, 270deg, color-stop(0, rgb(19, 40, 120)), color-stop(1, rgb(0, 10, 44)));
+				background-image: -o-linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				background-image: -webkit-linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				background-image: -ms-linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				background-image: linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				background-clip: padding-box;
+			}
+			.s56 {
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+			}
+			.ps45 {
+				display: inline-block;
+				width: 0;
+				height: 0;
+			}
+			.ps46 {
+				position: relative;
+				margin-top: 13px;
+			}
+			.s57 {
+				min-width: 960px;
+				width: 960px;
+				margin-left: auto;
+				margin-right: auto;
+				min-height: 43px;
+			}
+			.s58 {
+				width: 964px;
+				margin-left: 0;
+				min-height: 43px;
+			}
+			.v9 {
+				display: inline-block;
+				vertical-align: top;
+			}
+			.ps47 {
+				position: relative;
+				margin-left: 31px;
+				margin-top: 1px;
+			}
+			.s59 {
+				min-width: 929px;
+				width: 929px;
+				min-height: 42px;
+			}
+			.ps48 {
+				position: relative;
+				margin-left: 0;
+				margin-top: 0;
+			}
+			.s60 {
+				min-width: 146px;
+				width: 146px;
+				min-height: 42px;
+				height: 42px;
+			}
+			.c45 {
+				z-index: 2;
+				pointer-events: auto;
+			}
+			.i7 {
+				position: absolute;
+				left: 0;
+				width: 146px;
+				height: 40px;
+				top: 1px;
+				border: 0;
+			}
+			.i8 {
+				width: 100%;
+				height: 100%;
+				display: inline-block;
+				-webkit-transform: translate3d(0, 0, 0);
+			}
+			.ps49 {
+				position: relative;
+				margin-left: 685px;
+				margin-top: 1px;
+			}
+			.s61 {
+				min-width: 98px;
+				width: 98px;
+				min-height: 34px;
+			}
+			.c46 {
+				z-index: 3;
+				pointer-events: auto;
+			}
+			.f20 {
+				font-family: "Helvetica Neue", sans-serif;
+				font-size: 14px;
+				font-size: calc(14px * var(--f));
+				line-height: 1.215;
+				font-weight: 700;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: normal;
+				text-shadow: none;
+				text-indent: 0;
+				text-align: center;
+				padding-top: 9px;
+				padding-bottom: 8px;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			.btn4 {
+				border: 0;
+				-webkit-border-radius: 7px;
+				-moz-border-radius: 7px;
+				border-radius: 7px;
+				background-image: -webkit-gradient(linear, 180deg, color-stop(0, rgb(38, 139, 210)), color-stop(1, rgb(82, 138, 213)));
+				background-image: -o-linear-gradient(180deg, rgb(38, 139, 210) 0%, rgb(82, 138, 213) 100%);
+				background-image: -webkit-linear-gradient(180deg, rgb(38, 139, 210) 0%, rgb(82, 138, 213) 100%);
+				background-image: -ms-linear-gradient(180deg, rgb(38, 139, 210) 0%, rgb(82, 138, 213) 100%);
+				background-image: linear-gradient(180deg, rgb(38, 139, 210) 0%, rgb(82, 138, 213) 100%);
+				background-clip: padding-box;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.13);
+				color: #fff;
+			}
+			.btn4:hover {
+				background-color: #c05dc5;
+				border-color: #101010;
+				color: #fff;
+				background-image: -webkit-gradient(linear, 0deg, color-stop(0, #c05dc5), color-stop(1, #c05dc5));
+				background-image: -o-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: -webkit-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: -ms-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+			}
+			.btn4:active {
+				background-color: #c05dc5;
+				border-color: #101010;
+				color: #fff;
+				background-image: -webkit-gradient(linear, 0deg, color-stop(0, #c05dc5), color-stop(1, #c05dc5));
+				background-image: -o-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: -webkit-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: -ms-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+			}
+			.v10 {
+				display: inline-block;
+				overflow: hidden;
+				outline: 0;
+			}
+			.s62 {
+				width: 98px;
+				padding-right: 0;
+				height: 17px;
+			}
+			.ps50 {
+				position: relative;
+				margin-top: 0;
+			}
+			.s63 {
+				width: 100%;
+				min-width: 960px;
+				min-height: 718px;
+			}
+			.c47 {
+				z-index: 4;
+				pointer-events: none;
+				border: 0;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				border-radius: 0;
+				background-image: -webkit-gradient(linear, 270deg, color-stop(0, rgb(19, 40, 120)), color-stop(1, rgb(0, 10, 44)));
+				background-image: -o-linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				background-image: -webkit-linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				background-image: -ms-linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				background-image: linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				background-clip: padding-box;
+			}
+			.ps51 {
+				position: relative;
+				margin-top: 61px;
+			}
+			.s64 {
+				min-width: 960px;
+				width: 960px;
+				margin-left: auto;
+				margin-right: auto;
+				min-height: 551px;
+			}
+			.ps52 {
+				position: relative;
+				margin-left: 0;
+				margin-top: 0;
+			}
+			.s65 {
+				min-width: 960px;
+				width: 960px;
+				min-height: 551px;
+			}
+			.ps53 {
+				position: relative;
+				margin-left: 0;
+				margin-top: 0;
+			}
+			.s66 {
+				min-width: 467px;
+				width: 467px;
+				min-height: 479px;
+				height: 479px;
+			}
+			.c48 {
+				z-index: 10;
+				pointer-events: auto;
+			}
+			.i9 {
+				position: absolute;
+				left: 0;
+				width: 467px;
+				height: 464px;
+				top: 7px;
+				border: 0;
+			}
+			.ps54 {
+				position: relative;
+				margin-left: 23px;
+				margin-top: 108px;
+			}
+			.s67 {
+				min-width: 447px;
+				width: 447px;
+				min-height: 443px;
+			}
+			.w2 {
+				line-height: 0;
+			}
+			.s68 {
+				min-width: 447px;
+				width: 447px;
+				min-height: 284px;
+			}
+			.c49 {
+				z-index: 9;
+			}
+			.s69 {
+				min-width: 447px;
+				width: 447px;
+				min-height: 205px;
+			}
+			.s70 {
+				min-width: 447px;
+				width: 447px;
+				min-height: 141px;
+			}
+			.c50 {
+				z-index: 6;
+				pointer-events: auto;
+				overflow: hidden;
+				height: 141px;
+			}
+			.p5 {
+				text-indent: 0;
+				padding-bottom: 0;
+				padding-right: 0;
+				text-align: left;
+			}
+			.f21 {
+				font-family: Ubuntu;
+				font-size: 45px;
+				font-size: calc(45px * var(--f));
+				line-height: 1.045;
+				font-weight: 700;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: -0.81px;
+				color: #fff;
+				background-color: initial;
+				text-shadow: 0 6px 3px transparent;
+			}
+			.ps55 {
+				position: relative;
+				margin-left: 0;
+				margin-top: -26px;
+			}
+			.s71 {
+				min-width: 428px;
+				width: 428px;
+				min-height: 90px;
+			}
+			.c51 {
+				z-index: 7;
+				pointer-events: auto;
+				overflow: hidden;
+				height: 90px;
+			}
+			.f22 {
+				font-family: Ubuntu;
+				font-size: 22px;
+				font-size: calc(22px * var(--f));
+				line-height: 1.365;
+				font-weight: 400;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: normal;
+				color: #fff;
+				background-color: initial;
+				text-shadow: none;
+			}
+			.ps56 {
+				position: relative;
+				margin-left: 0;
+				margin-top: 29px;
+			}
+			.s72 {
+				min-width: 221px;
+				width: 221px;
+				min-height: 50px;
+			}
+			.c52 {
+				z-index: 8;
+				pointer-events: auto;
+			}
+			.f23 {
+				font-family: "Helvetica Neue", sans-serif;
+				font-size: 18px;
+				font-size: calc(18px * var(--f));
+				line-height: 1.279;
+				font-weight: 700;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: normal;
+				text-shadow: none;
+				text-indent: 0;
+				text-align: center;
+				padding-top: 14px;
+				padding-bottom: 13px;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			.btn5 {
+				border: 0;
+				-webkit-border-radius: 7px;
+				-moz-border-radius: 7px;
+				border-radius: 7px;
+				background-image: -webkit-gradient(linear, 180deg, color-stop(0, rgb(38, 139, 210)), color-stop(1, rgb(82, 138, 213)));
+				background-image: -o-linear-gradient(180deg, rgb(38, 139, 210) 0%, rgb(82, 138, 213) 100%);
+				background-image: -webkit-linear-gradient(180deg, rgb(38, 139, 210) 0%, rgb(82, 138, 213) 100%);
+				background-image: -ms-linear-gradient(180deg, rgb(38, 139, 210) 0%, rgb(82, 138, 213) 100%);
+				background-image: linear-gradient(180deg, rgb(38, 139, 210) 0%, rgb(82, 138, 213) 100%);
+				background-clip: padding-box;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.13);
+				color: #fff;
+			}
+			.btn5:hover {
+				background-color: #c05dc5;
+				border-color: #101010;
+				color: #fff;
+				background-image: -webkit-gradient(linear, 0deg, color-stop(0, #c05dc5), color-stop(1, #c05dc5));
+				background-image: -o-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: -webkit-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: -ms-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+			}
+			.btn5:active {
+				background-color: #c05dc5;
+				border-color: #101010;
+				color: #fff;
+				background-image: -webkit-gradient(linear, 0deg, color-stop(0, #c05dc5), color-stop(1, #c05dc5));
+				background-image: -o-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: -webkit-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: -ms-linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+				background-image: linear-gradient(0deg, #c05dc5 0%, #c05dc5 100%);
+			}
+			.s73 {
+				width: 221px;
+				padding-right: 0;
+				height: 23px;
+			}
+			.ps57 {
+				position: relative;
+				margin-left: 1px;
+				margin-top: 37px;
+			}
+			.s74 {
+				min-width: 350px;
+				width: 350px;
+				min-height: 122px;
+			}
+			.c53 {
+				z-index: 11;
+			}
+			.ps58 {
+				position: relative;
+				margin-left: 0;
+				margin-top: 0;
+			}
+			.s75 {
+				min-width: 151px;
+				width: 151px;
+				min-height: 21px;
+			}
+			.c54 {
+				pointer-events: auto;
+				overflow: hidden;
+				height: 21px;
+			}
+			.f24 {
+				font-family: Lato;
+				font-size: 12px;
+				font-size: calc(12px * var(--f));
+				line-height: 1.751;
+				font-weight: 400;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: normal;
+				color: #fff;
+				background-color: initial;
+				text-shadow: none;
+			}
+			.ps59 {
+				position: relative;
+				margin-left: 0;
+				margin-top: 13px;
+			}
+			.s76 {
+				min-width: 350px;
+				width: 350px;
+				min-height: 88px;
+			}
+			.s77 {
+				min-width: 71px;
+				width: 71px;
+				min-height: 88px;
+			}
+			.ps60 {
+				position: relative;
+				margin-left: 4px;
+				margin-top: 0;
+			}
+			.s78 {
+				min-width: 62px;
+				width: 62px;
+				min-height: 62px;
+				height: 62px;
+			}
+			.c55 {
+				pointer-events: auto;
+			}
+			.i10 {
+				position: absolute;
+				left: 0;
+				width: 62px;
+				height: 62px;
+				top: 0;
+				border: 0;
+			}
+			.ps61 {
+				position: relative;
+				margin-left: 0;
+				margin-top: 5px;
+			}
+			.s79 {
+				min-width: 71px;
+				width: 71px;
+				min-height: 21px;
+			}
+			.c56 {
+				pointer-events: auto;
+				overflow: hidden;
+				height: 21px;
+			}
+			.p6 {
+				text-indent: 0;
+				padding-bottom: 0;
+				padding-right: 0;
+				text-align: center;
+			}
+			.f25 {
+				font-family: Lato;
+				font-size: 10px;
+				font-size: calc(10px * var(--f));
+				line-height: 1.701;
+				font-weight: 400;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: normal;
+				color: #fff;
+				background-color: initial;
+				text-shadow: none;
+			}
+			.ps62 {
+				position: relative;
+				margin-left: 22px;
+				margin-top: 0;
+			}
+			.s80 {
+				min-width: 71px;
+				width: 71px;
+				min-height: 88px;
+			}
+			.s81 {
+				min-width: 71px;
+				width: 71px;
+				min-height: 21px;
+			}
+			.ps63 {
+				position: relative;
+				margin-left: 22px;
+				margin-top: 0;
+			}
+			.ps64 {
+				position: relative;
+				margin-left: 4px;
+				margin-top: 0;
+			}
+			.s82 {
+				min-width: 62px;
+				width: 62px;
+				min-height: 62px;
+				height: 62px;
+			}
+			.i11 {
+				position: absolute;
+				left: 0;
+				width: 62px;
+				height: 62px;
+				top: 0;
+				border: 0;
+			}
+			.ps65 {
+				position: relative;
+				margin-left: 13px;
+				margin-top: 120px;
+			}
+			.s83 {
+				min-width: 10px;
+				width: 10px;
+				min-height: 10px;
+				height: 10px;
+				-ms-transform: scale(-1, 1);
+				-moz-transform: scale(-1, 1);
+				-webkit-transform: scale(-1, 1);
+				transform: scale(-1, 1);
+			}
+			.c57 {
+				z-index: 11;
+				pointer-events: auto;
+			}
+			.wrapper1 {
+				font-size: 15px;
+				line-height: 1.4;
+				height: 10px;
+			}
+			.wrapper1 div,
+			.wrapper1 p,
+			.wrapper1 a {
+				font-size: 15px;
+				line-height: 1.4;
+			}
+			.wrapper1 input {
+				font-size: 15px;
+				line-height: 1.4;
+				margin: 3px 2px 3px 2px;
+			}
+			.c58 {
+				display: block;
+				position: relative;
+				width: max(960px, 100%);
+				overflow: hidden;
+				margin-top: 0;
+				min-height: 1247px;
+			}
+			.s84 {
+				width: 100%;
+				min-width: 960px;
+				min-height: 743px;
+			}
+			.c59 {
+				z-index: 26;
+				pointer-events: none;
+				border: 0;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				border-radius: 0;
+				background-image: url(images/frame-14-1921.png);
+				background-color: #fff;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-clip: padding-box;
+			}
+			.webp .c59 {
+				background-image: url(images/frame-14-1921.webp);
+			}
+			.ps66 {
+				position: relative;
+				margin-top: 105px;
+			}
+			.s85 {
+				min-width: 960px;
+				width: 960px;
+				margin-left: auto;
+				margin-right: auto;
+				min-height: 550px;
+			}
+			.s86 {
+				width: 962px;
+				margin-left: -1px;
+				min-height: 550px;
+			}
+			.ps67 {
+				position: relative;
+				margin-left: 1px;
+				margin-top: 0;
+			}
+			.s87 {
+				min-width: 330px;
+				width: 330px;
+				min-height: 57px;
+			}
+			.c60 {
+				pointer-events: auto;
+				overflow: hidden;
+				height: 57px;
+			}
+			.f26 {
+				font-family: Ubuntu;
+				font-size: 40px;
+				font-size: calc(40px * var(--f));
+				line-height: 1.051;
+				font-weight: 700;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: -0.81px;
+				color: #000;
+				background-color: initial;
+				text-shadow: 0 6px 3px transparent;
+			}
+			.ps68 {
+				position: relative;
+				margin-left: 0;
+				margin-top: 36px;
+			}
+			.s88 {
+				min-width: 962px;
+				width: 962px;
+				min-height: 457px;
+			}
+			.s89 {
+				min-width: 630px;
+				width: 630px;
+				min-height: 359px;
+			}
+			.s90 {
+				min-width: 630px;
+				width: 630px;
+				min-height: 309px;
+			}
+			.c61 {
+				z-index: 29;
+			}
+			.s91 {
+				min-width: 628px;
+				width: 628px;
+				min-height: 307px;
+				height: 307px;
+			}
+			.c62 {
+				z-index: 30;
+				border: 1px solid rgba(38, 139, 210, 0.3);
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				border-radius: 0;
+				background-color: #b8c8d2;
+				background-clip: padding-box;
+			}
+			.ps69 {
+				position: relative;
+				margin-left: 39px;
+				margin-top: 30px;
+			}
+			.s92 {
+				min-width: 371px;
+				width: 371px;
+				min-height: 246px;
+			}
+			.c63 {
+				z-index: 31;
+				pointer-events: auto;
+				overflow: hidden;
+				height: 246px;
+			}
+			.ps70 {
+				margin-left: 24px;
+			}
+			.p7 {
+				padding-bottom: 0;
+				text-align: left;
+				text-indent: -23px;
+				padding-right: 0;
+			}
+			.f27 {
+				font-family: Ubuntu;
+				font-size: 22px;
+				font-size: calc(22px * var(--f));
+				line-height: 1.865;
+				font-weight: 400;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: normal;
+				color: #000;
+				background-color: initial;
+				text-shadow: none;
+			}
+			.ps71 {
+				position: relative;
+				margin-left: 146px;
+				margin-top: -80px;
+			}
+			.s93 {
+				min-width: 130px;
+				width: 130px;
+				min-height: 130px;
+				height: 130px;
+			}
+			.c64 {
+				z-index: 28;
+				pointer-events: auto;
+			}
+			.i12 {
+				position: absolute;
+				left: 0;
+				width: 130px;
+				height: 130px;
+				top: 0;
+				opacity: 0.59;
+				border: 0;
+			}
+			@media (max-width: 959px) {
+				.s55 {
+					min-width: 320px;
+					min-height: 53px;
+				}
+				.ps46 {
+					margin-top: 7px;
+				}
+				.s57 {
+					min-width: 320px;
+					width: 320px;
+				}
+				.s58 {
+					width: 307px;
+				}
+				.ps47 {
+					margin-left: 3px;
+				}
+				.s59 {
+					min-width: 300px;
+					width: 300px;
+					min-height: 37px;
+				}
+				.s60 {
+					min-width: 129px;
+					width: 129px;
+					min-height: 37px;
+					height: 37px;
+				}
+				.i7 {
+					width: 129px;
+					height: 36px;
+					top: 0;
+				}
+				.ps49 {
+					margin-left: 94px;
+				}
+				.s61 {
+					min-width: 77px;
+					width: 77px;
+					min-height: 35px;
+				}
+				.f20 {
+					font-size: 12px;
+					font-size: calc(12px * var(--f));
+					line-height: 1.251;
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+				.s62 {
+					width: 77px;
+					height: 15px;
+				}
+				.s63 {
+					min-width: 320px;
+					min-height: 667px;
+				}
+				.ps51 {
+					margin-top: 21px;
+				}
+				.s64 {
+					min-width: 320px;
+					width: 320px;
+					min-height: 624px;
+				}
+				.ps52 {
+					margin-left: 13px;
+				}
+				.s65 {
+					min-width: 307px;
+					width: 307px;
+					min-height: 624px;
+				}
+				.ps53 {
+					margin-left: 10px;
+				}
+				.s66 {
+					min-width: 272px;
+					width: 272px;
+					min-height: 279px;
+					height: 279px;
+				}
+				.i9 {
+					width: 272px;
+					height: 270px;
+					top: 5px;
+				}
+				.ps54 {
+					margin-left: 0;
+					margin-top: 19px;
+				}
+				.s67 {
+					min-width: 298px;
+					width: 298px;
+					min-height: 326px;
+				}
+				.s68 {
+					min-width: 298px;
+					width: 298px;
+					min-height: 192px;
+				}
+				.s69 {
+					min-width: 296px;
+					width: 296px;
+					min-height: 126px;
+				}
+				.s70 {
+					min-width: 296px;
+					width: 296px;
+					min-height: 61px;
+				}
+				.c50 {
+					height: 61px;
+				}
+				.f21 {
+					font-size: 25px;
+					font-size: calc(25px * var(--f));
+					line-height: 1.041;
+					text-shadow: 0 2px 3px transparent;
+				}
+				.ps55 {
+					margin-left: 8px;
+					margin-top: 0;
+				}
+				.s71 {
+					min-width: 284px;
+					width: 284px;
+					min-height: 65px;
+				}
+				.c51 {
+					height: 65px;
+				}
+				.f22 {
+					font-size: 15px;
+					font-size: calc(15px * var(--f));
+					line-height: 1.268;
+				}
+				.ps56 {
+					margin-left: 1px;
+					margin-top: 19px;
+				}
+				.s72 {
+					min-width: 297px;
+					width: 297px;
+					min-height: 47px;
+				}
+				.f23 {
+					padding-top: 12px;
+					padding-bottom: 12px;
+				}
+				.s73 {
+					width: 297px;
+				}
+				.ps57 {
+					margin-left: 0;
+					margin-top: 25px;
+				}
+				.s74 {
+					min-width: 271px;
+					width: 271px;
+					min-height: 109px;
+				}
+				.ps58 {
+					margin-left: 2px;
+				}
+				.s75 {
+					min-width: 170px;
+					width: 170px;
+					min-height: 31px;
+				}
+				.c54 {
+					height: 31px;
+				}
+				.f24 {
+					font-size: 14px;
+					font-size: calc(14px * var(--f));
+					line-height: 1.644;
+				}
+				.ps59 {
+					margin-top: 9px;
+				}
+				.s76 {
+					min-width: 271px;
+					width: 271px;
+					min-height: 69px;
+				}
+				.s77 {
+					min-width: 56px;
+					width: 56px;
+					min-height: 69px;
+				}
+				.ps60 {
+					margin-left: 2px;
+				}
+				.s78 {
+					min-width: 49px;
+					width: 49px;
+					min-height: 49px;
+					height: 49px;
+				}
+				.i10 {
+					width: 49px;
+					height: 49px;
+				}
+				.ps61 {
+					margin-top: 4px;
+				}
+				.s79 {
+					min-width: 56px;
+					width: 56px;
+					min-height: 16px;
+				}
+				.c56 {
+					height: 16px;
+				}
+				.f25 {
+					font-size: 3px;
+					font-size: calc(3px * var(--f));
+					line-height: 1.668;
+				}
+				.ps62 {
+					margin-left: 16px;
+				}
+				.s80 {
+					min-width: 55px;
+					width: 55px;
+					min-height: 69px;
+				}
+				.s81 {
+					min-width: 55px;
+					width: 55px;
+					min-height: 16px;
+				}
+				.ps63 {
+					margin-left: 17px;
+				}
+				.ps64 {
+					margin-left: 3px;
+				}
+				.s82 {
+					min-width: 48px;
+					width: 48px;
+					min-height: 49px;
+					height: 49px;
+				}
+				.i11 {
+					width: 48px;
+					height: 48px;
+				}
+				.ps65 {
+					margin-left: 297px;
+					margin-top: -359px;
+				}
+				.s83 {
+					-ms-transform: scale(1, 1);
+					-moz-transform: scale(1, 1);
+					-webkit-transform: scale(1, 1);
+					transform: scale(1, 1);
+				}
+				.c58 {
+					width: max(320px, 100%);
+					min-height: 1445px;
+				}
+				.s84 {
+					min-width: 320px;
+					min-height: 626px;
+				}
+				.ps66 {
+					margin-top: 34px;
+				}
+				.s85 {
+					min-width: 320px;
+					width: 320px;
+					min-height: 555px;
+				}
+				.s86 {
+					width: 321px;
+					min-height: 555px;
+				}
+				.s87 {
+					min-width: 251px;
+					width: 251px;
+					min-height: 39px;
+				}
+				.c60 {
+					height: 39px;
+				}
+				.f26 {
+					font-size: 25px;
+					font-size: calc(25px * var(--f));
+					line-height: 1.041;
+					text-shadow: 0 2px 3px transparent;
+				}
+				.ps68 {
+					margin-top: 18px;
+				}
+				.s88 {
+					min-width: 321px;
+					width: 321px;
+					min-height: 498px;
+				}
+				.s89 {
+					min-width: 321px;
+					width: 321px;
+					min-height: 238px;
+				}
+				.s90 {
+					min-width: 297px;
+					width: 297px;
+					min-height: 206px;
+				}
+				.s91 {
+					min-width: 295px;
+					width: 295px;
+					min-height: 204px;
+					height: 204px;
+				}
+				.ps69 {
+					margin-left: 20px;
+					margin-top: 17px;
+				}
+				.s92 {
+					min-width: 259px;
+					width: 259px;
+					min-height: 170px;
+				}
+				.c63 {
+					height: 170px;
+				}
+				.f27 {
+					font-size: 15px;
+					font-size: calc(15px * var(--f));
+					line-height: 1.868;
+				}
+				.ps71 {
+					margin-left: 229px;
+					margin-top: -57px;
+				}
+				.s93 {
+					min-width: 92px;
+					width: 92px;
+					min-height: 89px;
+					height: 89px;
+				}
+				.i12 {
+					left: 2px;
+					width: 89px;
+					height: 89px;
+				}
+			}
+		</style>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-88b0e2.png" />
+		<meta name="msapplication-TileImage" content="images/mstile-144x144-1d9c2e.png" />
+		<script>
+			!(function () {
+				var A = new Image();
+				(A.onload = A.onerror =
+					function () {
+						1 != A.height && document.body.classList.remove("webp");
+					}),
+					(A.src = "data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAD8D+JaQAA3AA/ua1AAA");
+			})();
+		</script>
+		<link onload="this.media='all';this.onload=null;" rel="stylesheet" href="css/site.f56c0d.css" media="print" />
+	</head>
+	<body class="webp" id="b">
+		<div data-plx-offs="0;0;4;0" class="v8 ps44 s55 c42">
+			<div data-plx-c style="position: absolute; overflow: hidden; transform-style: preserve-3d; will-change: transform; -webkit-backface-visibility: hidden; backface-visibility: hidden; top: 0; left: 0">
+				<div class="plx" data-plx="v:0.25:0.75:0:0:2.00;h:0.25:0.75:0:0:cl;s:0.25:0.75:0:0:2.0;r:0.25:0.75:0:0:180.0:50%:50%" style="visibility: hidden; transform-style: preserve-3d; width: 100%%; height: 100%%">
+					<div class="c43 s56"></div>
+				</div>
+			</div>
+			<div class="ps45"></div>
+			<div class="ps46 v8 s57">
+				<div class="s58">
+					<div class="v9 ps47 s59 c44">
+						<div class="v9 ps48 s60 c45">
+							<picture class="i8">
+								<source srcset="images/holaplex-logo-white-15-129.webp 1x, images/holaplex-logo-white-15-258.webp 2x" type="image/webp" media="(max-width:959px)" />
+								<source srcset="images/holaplex-logo-white-15-129.png 1x, images/holaplex-logo-white-15-258.png 2x" media="(max-width:959px)" />
+								<source srcset="images/holaplex-logo-white-15-146.webp 1x, images/holaplex-logo-white-15-292.webp 2x" type="image/webp" media="(min-width:960px)" />
+								<source srcset="images/holaplex-logo-white-15-146.png 1x, images/holaplex-logo-white-15-292.png 2x" media="(min-width:960px)" />
+								<img src="images/holaplex-logo-white-15-292.png" class="un1 i7" />
+							</picture>
+						</div>
+						<div class="v9 ps49 s61 c46">
+							<a href="https://api.holaplex.com" class="f20 btn4 v10 s62">Get API</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="v8 ps50 s63 c47">
+			<div class="ps45"></div>
+			<div class="ps51 v8 s64">
+				<div class="v9 ps52 s65 c44">
+					<div class="v9 ps53 s66 c48">
+						<img src="images/ezgif-5-616759ac0d.gif" class="un2 i9" />
+					</div>
+					<div class="v9 ps54 s67 w2">
+						<div class="v9 ps48 s68 c49">
+							<div class="v9 ps48 s69 c44">
+								<div class="v9 ps48 s69 w2">
+									<div id="gradi_title" class="v9 ps48 s70 c50">
+										<h1 class="p5 f21">Build better apps&nbsp;</h1>
+										<h1 class="p5 f21">on Solana&nbsp;</h1>
+									</div>
+									<div class="v9 ps55 s71 c51">
+										<h2 class="p5 f22">Performant API to power your Solana blockchain app. Get fast, reliable data easily.</h2>
+									</div>
+								</div>
+							</div>
+							<div class="v9 ps56 s72 c52">
+								<a href="https://api.holaplex.com" class="f23 btn5 v10 s73">Get API</a>
+							</div>
+						</div>
+						<div class="v9 ps57 s74 c53">
+							<div class="v9 ps58 s75 c54">
+								<p class="p5 f24">Supported Protocols :</p>
+							</div>
+							<div class="v9 ps59 s76 c44">
+								<div class="v9 ps48 s76 c44">
+									<div class="anim slideInUp un4 v9 ps48 s77 c44">
+										<div class="v9 ps60 s78 c55">
+											<picture class="i8">
+												<source srcset="images/frame-6-49.webp 1x, images/frame-6-98.webp 2x" type="image/webp" media="(max-width:959px)" />
+												<source srcset="images/frame-6-49.png 1x, images/frame-6-98.png 2x" media="(max-width:959px)" />
+												<source srcset="images/frame-6-62.webp 1x, images/frame-6-124.webp 2x" type="image/webp" media="(min-width:960px)" />
+												<source srcset="images/frame-6-62.png 1x, images/frame-6-124.png 2x" media="(min-width:960px)" />
+												<img src="images/frame-6-124.png" class="un3 i10" />
+											</picture>
+										</div>
+										<div class="v9 ps61 s79 c56">
+											<p class="p6 f25">Metaplex</p>
+										</div>
+									</div>
+									<div class="anim slideInUp un6 v9 ps62 s80 c44">
+										<div class="v9 ps60 s78 c55">
+											<picture class="i8">
+												<source srcset="images/frame-6-1--49.webp 1x, images/frame-6-1--98.webp 2x" type="image/webp" media="(max-width:959px)" />
+												<source srcset="images/frame-6-1--49.png 1x, images/frame-6-1--98.png 2x" media="(max-width:959px)" />
+												<source srcset="images/frame-6-1--62.webp 1x, images/frame-6-1--124.webp 2x" type="image/webp" media="(min-width:960px)" />
+												<source srcset="images/frame-6-1--62.png 1x, images/frame-6-1--124.png 2x" media="(min-width:960px)" />
+												<img src="images/frame-6-1--124.png" class="un5 i10" />
+											</picture>
+										</div>
+										<div class="v9 ps61 s81 c56">
+											<p class="p6 f25">Solana</p>
+										</div>
+									</div>
+									<div class="anim slideInUp un8 v9 ps63 s80 c44">
+										<div class="v9 ps60 s78 c55">
+											<picture class="i8">
+												<source srcset="images/frame-6-2--49.webp 1x, images/frame-6-2--98.webp 2x" type="image/webp" media="(max-width:959px)" />
+												<source srcset="images/frame-6-2--49.png 1x, images/frame-6-2--98.png 2x" media="(max-width:959px)" />
+												<source srcset="images/frame-6-2--62.webp 1x, images/frame-6-2--124.webp 2x" type="image/webp" media="(min-width:960px)" />
+												<source srcset="images/frame-6-2--62.png 1x, images/frame-6-2--124.png 2x" media="(min-width:960px)" />
+												<img src="images/frame-6-2--124.png" class="un7 i10" />
+											</picture>
+										</div>
+										<div class="v9 ps61 s81 c56">
+											<p class="p6 f25">Dialect</p>
+										</div>
+									</div>
+									<div class="anim slideInUp un10 v9 ps62 s77 c44">
+										<div class="v9 ps64 s82 c55">
+											<picture class="i8">
+												<source srcset="images/frame-6-3--48.webp 1x, images/frame-6-3--96.webp 2x" type="image/webp" media="(max-width:959px)" />
+												<source srcset="images/frame-6-3--48.png 1x, images/frame-6-3--96.png 2x" media="(max-width:959px)" />
+												<source srcset="images/frame-6-3--62.webp 1x, images/frame-6-3--124.webp 2x" type="image/webp" media="(min-width:960px)" />
+												<source srcset="images/frame-6-3--62.png 1x, images/frame-6-3--124.png 2x" media="(min-width:960px)" />
+												<img src="images/frame-6-3--124.png" class="un9 i11" />
+											</picture>
+										</div>
+										<div class="v9 ps61 s79 c56">
+											<p class="p6 f25">Strata</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="v9 ps65 s83 c57">
+						<div class="wrapper1">
+							<style>
+								a {
+									transition: 0.4s ease;
+								}
+								a:hover {
+									transform: Scale(0.9);
+								}
+
+								#gradi_title {
+									background: linear-gradient(263.43deg, #528ad5 -19.48%, #ffa2de 120.66%);
+									-webkit-background-clip: text;
+									-webkit-text-fill-color: transparent;
+									background-clip: text;
+									text-fill-color: transparent;
+								}
+
+								#blurBox {
+									background: linear-gradient(253.09deg, rgba(217, 217, 217, 0.25) -7.53%, rgba(217, 217, 217, 0) 97.04%);
+									backdrop-filter: blur(50px);
+									/* Note: backdrop-filter has minimal browser support */
+									border-radius: 15px;
+								}
+							</style>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="c58">
+			<div class="v8 ps50 s84 c59">
+				<div class="ps45"></div>
+				<div class="ps66 v8 s85">
+					<div class="s86">
+						<div class="v9 ps67 s87 c60">
+							<h1 class="p5 f26">The Holaplex API</h1>
+						</div>
+						<div class="v9 ps68 s88 c44">
+							<div class="v9 ps48 s89 w2">
+								<div class="v9 ps48 s90 c61">
+									<div id="blurBox" class="v9 ps48 s91 c62">
+										<div class="v9 ps69 s92 c63">
+											<ul class="ps70">
+												<li class="p7 f27">&check;<span class="f27"> </span><span class="f27">Build apps that run fast with low latency&nbsp;</span></li>
+												<li class="p7 f27">&check;<span class="f27"> </span><span class="f27">Replace your get program accounts calls</span></li>
+												<li class="p7 f27">&check;<span class="f27"> </span><span class="f27">Access Solana blockchain through GraphQL</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="v9 ps71 s93 c64">
+									<picture class="i8 un37">
+										<source data-srcset="images/blur-pattern-5-89.webp 1x, images/blur-pattern-5-178.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(max-width:959px)" />
+										<source data-srcset="images/blur-pattern-5-89.png 1x, images/blur-pattern-5-178.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(max-width:959px)" />
+										<source data-srcset="images/blur-pattern-5-130.webp 1x, images/blur-pattern-5-260.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(min-width:960px)" />
+										<source data-srcset="images/blur-pattern-5-130.png 1x, images/blur-pattern-5-260.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(min-width:960px)" />
+										<img src="images/blur-pattern-5-260.png" class="un11 i12" />
+									</picture>
+								</div>
+							</div>
+							<div class="v1 ps1 s1 c1">
+								<div class="v1 ps2 s2 c2">
+									<div class="v1 ps3 s3 c3">
+										<div class="v1 ps2 s3 w1">
+											<div class="v1 ps2 s3 c4">
+												<div class="v1 ps2 s4 c3">
+													<div class="v1 ps2 s5 c5"></div>
+													<div class="v1 ps4 s5 c6"></div>
+													<div class="v1 ps4 s5 c7"></div>
+												</div>
+												<div class="v1 ps5 s6 c8">
+													<p class="p1 f1">{&nbsp;</p>
+													<p class="p1 f2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f3">nfts</span><span class="f1">(&nbsp;</span></p>
+													<p class="p1 f2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f4">owners:</span><span class="f1"> &quot;</span><span class="f5">70UUEdptZnZVhSet4q0bU9PtpPfiNUEJ8ftPnrC6YEaa</span><span class="f1">&quot;&nbsp;</span></p>
+													<p class="p1 f2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f4">Offset</span><span class="f1">:</span> <span class="f6">0</span><span class="f1">,</span></p>
+													<p class="p1 f2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f4">limit</span>: <span class="f6">25</span>&nbsp;</p>
+													<p class="p1 f2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f1">&nbsp;&nbsp;) {&nbsp;</span></p>
+													<p class="p1 f2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f3">name&nbsp;</span></p>
+													<p class="p1 f3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mintAddress&nbsp;</p>
+													<p class="p1 f3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image<span class="f1">(</span><span class="f4">width</span><span class="f1">:</span><span class="f2"> </span><span class="f6">1400</span><span class="f1">)</span></p>
+													<p class="p1 f2">&nbsp;&nbsp;&nbsp;&nbsp; <span class="f1"> }</span></p>
+													<p class="p1 f1">}</p>
+												</div>
+											</div>
+											<div class="v1 ps6 s7 c9">
+												<img src="images/ezgif-1-cc0f4661e0.gif" class="un12 i1" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="v2 ps7 s8 c10">
+				<div class="ps8"></div>
+				<div class="ps9 v2 s9">
+					<div class="s10">
+						<div class="v1 ps10 s11 c3">
+							<div class="v1 ps2 s12 c3">
+								<div class="v1 ps2 s13 c11">
+									<div class="v1 ps11 s14 c12">
+										<picture class="i3 un33">
+											<source data-srcset="images/group-1744-67.webp 1x, images/group-1744-134.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(max-width:959px)" />
+											<source data-srcset="images/group-1744-67.png 1x, images/group-1744-134.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(max-width:959px)" />
+											<source data-srcset="images/group-1744-157.webp 1x, images/group-1744-314.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(min-width:960px)" />
+											<source data-srcset="images/group-1744-157.png 1x, images/group-1744-314.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(min-width:960px)" />
+											<img src="images/group-1744-314.png" class="un13 i2" />
+										</picture>
+									</div>
+									<div class="v1 ps12 s15 c13">
+										<p class="p2 f7">Cross Protocol Query Interface</p>
+									</div>
+									<div class="v1 ps13 s16 c14">
+										<p class="p2 f8">Query multiple on-chain actions across different Solana programs.</p>
+									</div>
+								</div>
+							</div>
+							<div class="v1 ps14 s17 c3">
+								<div class="v1 ps2 s18 c15">
+									<div class="v1 ps15 s19 c16">
+										<picture class="i3 un34">
+											<source data-srcset="images/meter-68.webp 1x, images/meter-136.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(max-width:959px)" />
+											<source data-srcset="images/meter-68.png 1x, images/meter-136.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(max-width:959px)" />
+											<source data-srcset="images/meter-160.webp 1x, images/meter-320.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(min-width:960px)" />
+											<source data-srcset="images/meter-160.png 1x, images/meter-320.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(min-width:960px)" />
+											<img src="images/meter-320.png" class="un14 i4" />
+										</picture>
+									</div>
+									<div class="v1 ps16 s20 c3">
+										<div class="v1 ps17 s21 c17">
+											<p class="p2 f8">&nbsp;Low latency performance with sub millisecond data query of on-chain data and realtime updates.</p>
+										</div>
+										<div class="v1 ps18 s22 c18">
+											<p class="p2 f7">High Performance</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="v1 ps19 s23 c3">
+								<div class="v1 ps2 s24 c19">
+									<div class="v1 ps20 s25 c20">
+										<picture class="i3 un35">
+											<source data-srcset="images/shield-69.webp 1x, images/shield-138.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(max-width:959px)" />
+											<source data-srcset="images/shield-69.png 1x, images/shield-138.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(max-width:959px)" />
+											<source data-srcset="images/shield-165.webp 1x, images/shield-330.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(min-width:960px)" />
+											<source data-srcset="images/shield-165.png 1x, images/shield-330.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(min-width:960px)" />
+											<img src="images/shield-330.png" class="un15 i5" />
+										</picture>
+									</div>
+									<div class="v1 ps21 s26 c3">
+										<div class="v1 ps22 s27 c21">
+											<p class="p2 f8">99.9% uptime plus 24 hour support ensures your apps are always working.</p>
+										</div>
+										<div class="v1 ps23 s28 c22">
+											<p class="p2 f9">Reliable Infrastructure</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btf v2 ps24 s29 c23">
+			<div class="ps8"></div>
+			<div class="ps25 v2 s30">
+				<div class="v1 ps26 s31 c3">
+					<div class="v1 ps2 s32 c24">
+						<picture class="i3 un36">
+							<source data-srcset="images/frame-1--259.webp 1x, images/frame-1--518.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(max-width:959px)" />
+							<source data-srcset="images/frame-1--259.png 1x, images/frame-1--518.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(max-width:959px)" />
+							<source data-srcset="images/frame-1--481.webp 1x, images/frame-1--962.webp 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/webp" media="(min-width:960px)" />
+							<source data-srcset="images/frame-1--481.png 1x, images/frame-1--962.png 2x" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(min-width:960px)" />
+							<img src="images/frame-1--962.png" class="un16 i6" />
+						</picture>
+					</div>
+					<div class="v1 ps27 s33 w1">
+						<div class="v1 ps28 s34 c25">
+							<h1 class="p1 f10">The Solana NFT API</h1>
+						</div>
+						<div class="v1 ps29 s35 c26">
+							<h2 class="p1 f11">Get the performance you need to power your on-chain Solana applications</h2>
+						</div>
+						<div class="v1 ps30 s36 c27">
+							<a href="https://api.holaplex.com" class="f12 btn1 v3 s37">Get API</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btf v2 ps31 s38 c28">
+			<div class="ps8"></div>
+			<div class="ps32 v2 s39">
+				<div class="v1 ps2 s40 c3">
+					<div class="v1 ps2 s40 w1">
+						<div class="v4 ps33 s41 c29">
+							<div class="v1 ps2 s42 c30">
+								<div class="v4 ps34 s43 c31">
+									<h1 class="p3 f13">Want to index your protocol?</h1>
+								</div>
+								<div class="v4 ps35 s44 c32">
+									<h2 class="p3 f14">Be a part of the growing number of protocols indexing with us.</h2>
+								</div>
+								<div class="v4 ps36 s45 c33">
+									<a href="https://api.holaplex.com" class="f15 btn2 v5 s46">Get API</a>
+								</div>
+							</div>
+						</div>
+						<div class="v6 ps37 s47 c34">
+							<div class="v1 ps2 s40 c35">
+								<div class="v6 ps38 s48 c36">
+									<h1 class="p4 f16">Want to index your protocol?</h1>
+								</div>
+								<div class="v6 ps39 s49 c37">
+									<h2 class="p4 f17">Be a part of the growing number of protocols indexing with us.</h2>
+								</div>
+								<div class="v6 ps40 s50 c38">
+									<a href="account.freedrum.rocks/register" class="f18 btn3 v7 s51">Get API</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btf v2 ps41 s52 c39">
+			<div class="ps8"></div>
+			<div class="ps42 v2 s53">
+				<div class="v1 ps43 s54 c40">
+					<p class="p2 f19">Copyright &COPY; 2022. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+		<div class="btf c41"></div>
+		<script>
+			var p = document.createElement("P");
+			(p.innerHTML = "&nbsp;"), (p.style.cssText = "position:fixed;visible:hidden;font-size:100px;zoom:1"), document.body.appendChild(p);
+			var rsz = (function (e) {
+				return function () {
+					var r = Math.trunc(1e3 / parseFloat(window.getComputedStyle(e).getPropertyValue("font-size"))) / 10,
+						t = document.body;
+					r != t.style.getPropertyValue("--f") && t.style.setProperty("--f", r);
+				};
+			})(p);
+			if ("ResizeObserver" in window) {
+				var ro = new ResizeObserver(rsz);
+				ro.observe(p);
+			} else if ("requestAnimationFrame" in window) {
+				var raf = function () {
+					rsz(), requestAnimationFrame(raf);
+				};
+				requestAnimationFrame(raf);
+			} else setInterval(rsz, 100);
+		</script>
+
+		<script>
+			dpth = "/";
+			!(function () {
+				for (
+					var e = ["js/woolite.43f1fb.js", "js/jquery.43f1fb.js", "js/stickyfill.43f1fb.js", "js/index.f56c0d.js"],
+						n = {},
+						s = -1,
+						t = function (t) {
+							var o = new XMLHttpRequest();
+							o.open("GET", e[t], !0),
+								(o.onload = function () {
+									for (n[t] = o.responseText; s < 4 && void 0 !== n[s + 1]; ) {
+										s++;
+										var e = document.createElement("script");
+										(e.textContent = n[s]), document.body.appendChild(e);
+									}
+								}),
+								o.send();
+						},
+						o = 0;
+					o < 4;
+					o++
+				)
+					t(o);
+			})();
+		</script>
+		<script>
+			var init_parallax;
+			!(function () {
+				var t,
+					e,
+					i,
+					r,
+					o,
+					s,
+					l,
+					n,
+					a,
+					f,
+					d = ["sticky", "-webkit-sticky", "-moz-sticky", "-o-sticky", "-ms-sticky"],
+					p = void 0,
+					h = void 0,
+					m = 1;
+				init_parallax = function () {
+					t = document.querySelectorAll(".plx");
+				};
+				var y = function (t) {
+						var e = t.parentNode;
+						return (!1 === t.nc || (void 0 === t.nc && !(t.nc = null != t.getAttribute("data-plx-no-clip")))) && (e = e.parentNode), (t.c || (void 0 === t.c && (t.c = null != e.getAttribute("data-plx-c")))) && null != (e = e.parentNode).getAttribute("data-plx-c") && (e = e.parentNode), e;
+					},
+					g = function (t) {
+						var s = window,
+							l = void 0;
+						if ((!this.mw && "0px" === s.getComputedStyle((l = y(t))).getPropertyValue("min-width")) || (void 0 !== t.bounds && e == r && i == o)) void 0 === t.bounds || (0 != t.bounds.width && 0 != t.bounds.height) || ((t.bounds.width = t.offsetWidth), (t.bounds.height = t.offsetHeight));
+						else {
+							void 0 === t.currentTime && (t.style.position = "absolute"), void 0 === l && (l = y(t));
+							var n = 0,
+								a = 0,
+								f = l.offsetWidth,
+								p = l.offsetHeight,
+								h = l;
+							do {
+								var m = -1 != d.indexOf(s.getComputedStyle(h).position);
+								m && (h.style.position = "relative"), (n += h.offsetTop), (a += h.offsetLeft), m && (h.style.position = "sticky");
+							} while ((h = h.offsetParent));
+							t.bounds = { top: n, left: a, width: f, height: p };
+						}
+						return t.bounds;
+					},
+					u = function (t, e) {
+						for (var i = t.getBoundingClientRect(), r = 0; 0 !== e && r < t.children.length; r++) {
+							var o = e ? u(t.children[r], e) : t.children[r].getBoundingClientRect();
+							o.left < i.left && (i.left = o.left), o.top < i.top && (i.top = o.top), o.right > i.right && (i.right = o.right), o.bottom > i.bottom && (i.bottom = o.bottom);
+						}
+						return (i.width = i.right - i.left), (i.height = i.bottom - i.top), i;
+					},
+					c = function (t, e, i, r, o) {
+						window;
+						var l = n / m;
+						l < 0 && (l = 0);
+						var a = t.top;
+						1 == e ? (a += t.height / 2) : 2 == e && (a += t.height);
+						var f = (a - l) / s,
+							d = 0,
+							p = 0,
+							h = r >= 0 ? r : 0,
+							y = s * (i - h),
+							g = s * i,
+							u = s * h;
+						return a < s ? (f <= i && (f >= r || r <= 0) ? (o ? ((p = d = y - l), a > g ? (p = d += a - g) : a - u && (p = y - (l * y) / (a - u))) : ((p = d = l), a > g ? (p = d -= a - g) : a - u && (p = (d * y) / (a - u)))) : f <= i ? a > u && (o ? a < g && (d = g - a) : ((p = d = y), a < g && (d = a - u))) : o && a > g && (p = d = y)) : (f <= i && (f >= r || r <= 0) ? (d = o ? a - l - u : g - (a - l)) : f <= i ? o || (d = y) : o && (d = y), (p = d)), { o: d, n: p };
+					},
+					v = function () {
+						void 0 === p && ((p = /chrome/i.test(navigator.userAgent)), (h = /firefox/i.test(navigator.userAgent)));
+						var d = window;
+						if (((r = d.innerWidth), (o = d.innerHeight), (l = d.pageXOffset), (n = d.pageYOffset), (l < 0 && !p) || (this.mw && r === e && i === o && l === a && n === f))) d.requestAnimationFrame && d.requestAnimationFrame(v);
+						else {
+							l < 0 && (l = 0), h || (r == e && o == i) || (m = parseFloat(d.getComputedStyle(document.body).getPropertyValue("zoom"))), m || (m = 1), (s = o / m);
+							for (var x = r / m, w = !1, b = t.length - 1; b >= 0; b--) {
+								var T,
+									F = t[b],
+									k = y(F);
+								if (null !== k && "hidden" != (T = d.getComputedStyle(k)).getPropertyValue("visibility") && "none" != T.getPropertyValue("display")) {
+									var A = g(F);
+									if (null != A) {
+										if (void 0 === F.plx) {
+											if (((F.style.display = "block"), (F.plx = F.getAttribute("data-plx").split(";")), (F.bb = null != F.getAttribute("data-plx-bb")), (F.offsl = F.offst = F.incw = F.inch = 0), !F.nc)) {
+												var I = k.getAttribute("data-plx-offs");
+												null != I && ((I = I.split(";")), (F.offsl = 1.4142 * parseInt(I[0])), (F.offst = 1.4142 * parseInt(I[1])), (F.incw = Math.max(0, -F.offsl) + 1.4142 * parseInt(I[2])), (F.inch = Math.max(0, -F.offst) + 1.4142 * parseInt(I[3])));
+											}
+											var O = T.getPropertyValue("transform") || T.getPropertyValue("-webkit-transform") || T.getPropertyValue("-moz-transform") || T.getPropertyValue("-ms-transform"),
+												z = 1,
+												M = 1;
+											if ("none" != O) (O = O.substring(7).split(",")), (z = parseFloat(O[0]) >= 0 ? 1 : -1), (M = (R = parseFloat(O[3])) >= 0 ? 1 : -1);
+											(F.sx = z), (F.sy = M), (F.style.display = "inline-block");
+										}
+										for (var L = void 0, P = void 0, V = void 0, E = void 0, q = void 0, C = void 0, N = void 0, S = F.plx.length - 1; S >= 0; S--) {
+											Array.isArray(F.plx[S]) || ((F.plx[S] = F.plx[S].split(":")), (F.plx[S][1] = parseFloat(F.plx[S][1])), (F.plx[S][2] = parseFloat(F.plx[S][2])), (F.plx[S][3] = parseInt(F.plx[S][3])), (F.plx[S][4] = parseInt(F.plx[S][4])));
+											var R,
+												H = (R = F.plx[S])[1],
+												W = R[2],
+												Y = R[3],
+												_ = R[4],
+												B = s * (W - (H >= 0 ? H : 0)),
+												X = c(A, Y, W, H, _);
+											if (void 0 !== F.currentTime) {
+												if (F.videoWidth) {
+													N = X.o;
+													_ && (N = -N);
+													var j = N < 0 ? 0 : (N * R[5]) / 1e3;
+													if (h) {
+														F.playbackRate = 0;
+														var D = F.play();
+														void 0 !== D &&
+															D.then(
+																(function (t) {
+																	return function () {
+																		(t.currentTime = j), t.pause();
+																	};
+																})(F)
+															).catch(function (t) {});
+													} else F.currentTime = j;
+												} else (w = !0), (this.mw = !1);
+												break;
+											}
+											if ("LOTTIE-PLAYER" === F.tagName) {
+												if (void 0 !== F.seek) {
+													var G = (X.o / B) * R[5] * 100;
+													G < 0 ? (G = 0) : G > 100 && (G = Y ? G % 100 : 100), (G = parseInt(G) + "%"), F.seek(G);
+												}
+												break;
+											}
+											j = X.n / B;
+											if ("v" == R[0]) {
+												var J = (0 == _ ? -1 : 1) * (R[5] - 1);
+												(P = X.o * J), null == L && (L = 0);
+											} else if ("h" == R[0]) {
+												if ("ll" == R[5]) L = -(A.left + A.width);
+												else if ("lc" == R[5]) L = -(A.left + A.width) * (1 - j);
+												else if ("lr" == R[5]) L = -(A.left + A.width) * (1 - j) + (x - A.left) * j;
+												else if ("cl" == R[5]) L = -(A.left + A.width) * j;
+												else if ("cc" == R[5]) L = 0;
+												else if ("cr" == R[5]) L = (x - A.left) * j;
+												else if ("rl" == R[5]) L = -(A.left + A.width) * j + (x - A.left) * (1 - j);
+												else if ("rc" == R[5]) L = (x - A.left) * (1 - j);
+												else if ("rr" == R[5]) L = x - A.left;
+												else {
+													J = R[5];
+													L = X.o * J;
+												}
+												null == P && (P = 0);
+											} else "s" == R[0] ? (V = 1 - j + j * R[5]) < 0 && (V = 0) : "r" == R[0] ? ((E = j * R[5]), (q = R[6] + " " + R[7])) : "b" == R[0] ? (C = j * R[5]) < 0 && (C = 0) : "o" == R[0] && ((N = 1 - j + (j * R[5]) / 100) < 0 ? (N = 0) : N > 1 && (N = 1));
+										}
+										if (void 0 === F.currentTime && "LOTTIE-PLAYER" !== F.tagName) {
+											var K = F.nc ? void 0 : F.parentNode;
+											K && ((K.style.webkitTransform = K.style.MozTransform = K.style.msTransform = K.style.transform = "none"), (F.style.marginLeft = F.style.marginTop = 0));
+											var Q = "",
+												U = "";
+											null != L && ((Q = "translate3d(" + L.toFixed(1) + "px," + P.toFixed(1) + "px,0)"), (F.sx < 0 || F.sy < 0) && (U = "translate3d(" + (L * F.sx).toFixed(1) + "px," + (P * F.sy).toFixed(1) + "px,0)"));
+											var Z = "";
+											if ((null != V && (Z += "scale(" + V.toFixed(3) + "," + V.toFixed(3) + ")"), null != E && (Z.length && (Z += " "), (Z += "rotate(" + E.toFixed(1) + "deg)"), (F.style.webkitTransformOrigin = F.style.MozTransformOrigin = F.style.msTransformOrigin = F.style.transformOrigin = q)), Q.length && (Q += " "), (Q += Z), U.length && ((U += " "), (U += Z)), Q.length && (F.style.webkitTransform = F.style.MozTransform = F.style.msTransform = F.style.transform = Q), null != C && (F.style.webkitFilter = F.style.mozFilter = "blur(" + C.toFixed(1) + "px)"), null != N && ((F.style.opacity = N.toFixed(2)), (F.style.filter = "alpha(opacity=" + parseInt(100 * N) + ")")), K)) {
+												var $ = u(k, 0);
+												parseInt(10 * parseFloat(F.style.width)) != parseInt(10 * $.width) && (F.style.width = $.width.toFixed(1) + "px"), parseInt(10 * parseFloat(F.style.height)) != parseInt(10 * $.height) && (F.style.height = $.height.toFixed(1) + "px");
+												var tt,
+													et = u(F, F.bb);
+												U.length ? ((F.style.webkitTransform = F.style.MozTransform = F.style.msTransform = F.style.transform = U), (tt = u(F, F.bb))) : (tt = { left: et.left, top: et.top, width: et.width, height: et.height });
+												var it = (et.width - $.width) / 2 - F.offsl,
+													rt = (et.height - $.height) / 2 - F.offst;
+												(et.left += F.offsl), (et.top += F.offst), (tt.left += F.offsl), (tt.top += F.offst), (et.width += F.incw), (et.height += F.inch), (tt.width += F.incw), (tt.height += F.inch);
+												var ot = p ? 1 : m,
+													st = (tt.top + n) * ot - n;
+												if (st + tt.height * ot < 0 || st > d.innerHeight || tt.left + tt.width < 0 || tt.left > x) {
+													K.style.width = 0;
+													continue;
+												}
+												var lt = tt.left + l,
+													nt = lt + tt.width > x ? x - lt : tt.width,
+													at = F.sx < 0 ? et.width - nt : 0;
+												(F.style.transform || F.style.webkitTransform || F.style.MozTransform || F.style.msTransform) != Z && (F.style.webkitTransform = F.style.MozTransform = F.style.msTransform = F.style.transform = Z), "50% 50%" != (F.style.transformOrigin || F.style.webkitTransformOrigin || F.style.MozTransformOrigin || F.style.msTransformOrigin) && (F.style.webkitTransformOrigin = F.style.MozTransformOrigin = F.style.msTransformOrigin = F.style.transformOrigin = "50% 50%"), (it = (it + at).toFixed(1) + "px"), F.style.marginLeft != it && (F.style.marginLeft = it), (rt = rt.toFixed(1) + "px"), F.style.marginTop != rt && (F.style.marginTop = rt), parseInt(10 * parseFloat(K.style.width)) != parseInt(10 * nt) && (K.style.width = nt.toFixed(1) + "px"), parseInt(10 * parseFloat(K.style.height)) != parseInt(10 * et.height) && (K.style.height = et.height.toFixed(1) + "px"), (K.style.webkitTransform = K.style.MozTransform = K.style.msTransform = K.style.transform = "translate3d(" + (et.left - $.left - at).toFixed(1) + "px," + (et.top - $.top).toFixed(1) + "px,0)");
+											}
+											F.style.visibility = "";
+										}
+									}
+								}
+							}
+							this.mw ? ((e = r), (i = o), (a = l), (f = n)) : (this.mw = !w && "1px" === d.getComputedStyle(document.body).getPropertyValue("min-width")), d.requestAnimationFrame ? d.requestAnimationFrame(v) : this.mw || setTimeout(v, 100);
+						}
+					},
+					x = window;
+				if ((x.requestAnimationFrame ? x.requestAnimationFrame(v) : x.addEventListener ? (x.addEventListener("scroll", v), x.addEventListener("resize", v)) : ((x.onscroll = v), (x.onresize = v)), init_parallax(), v(), "matchMedia" in window))
+					try {
+						window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (t) {
+							v();
+						});
+					} catch (t) {}
+			})();
+		</script>
+	</body>
+</html>
