@@ -6,25 +6,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Dev Tools - Holaplex</title>
 		<style>
+			@font-face {
+				font-display: block;
+				font-family: "Lato";
+				src: url("/css/Lato-Regular.woff2") format("woff2"), url("/css/Lato-Regular.woff") format("woff");
+				font-weight: 400;
+			}
 			html,
 			body {
 				width: 100%;
 				height: 100%;
 				margin: 0;
 				background: linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
+				font-family: Lato;
 			}
 			.page-wrapper {
-				min-height: 100vh;
+				min-height: 50vh;
 				display: flex;
 				justify-content: flex-start;
 				align-items: center;
 				flex-direction: column;
-				padding: 50px 20px;
+				padding: 25px 20px;
 				max-width: 640px;
 				width: 90%;
 				box-sizing: border-box;
-				margin: auto;
-				background: white;
+				margin: 50px auto;
+				background: linear-gradient(253.09deg, rgba(255, 255, 255, 1) -7.53%, rgba(255, 255, 255, 1) 97.04%);
+				backdrop-filter: blur(50px);
+				border-radius: 15px;
 			}
 			.hbspt-form {
 				width: 100%;
@@ -40,6 +49,7 @@
 				<source srcset="/images/holaplex-logo-white-15-146.png 1x, /images/holaplex-logo-white-15-292.png 2x" media="(min-width:960px)" />
 				<img src="/images/holaplex-logo-white-15-292.png" class="un1 i7" />
 			</picture>
+			<h3>Start building with the Holaplex NFT API</h3>
 			<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 			<script>
 				hbspt.forms.create({
