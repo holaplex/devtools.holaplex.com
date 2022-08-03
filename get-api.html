@@ -11,36 +11,43 @@
 				width: 100%;
 				height: 100%;
 				margin: 0;
+				background: linear-gradient(270deg, rgb(19, 40, 120) 0%, rgb(0, 10, 44) 100%);
 			}
-			body {
+			.page-wrapper {
+				min-height: 100vh;
 				display: flex;
-				justify-content: center;
+				justify-content: flex-start;
 				align-items: center;
 				flex-direction: column;
-				padding: 3vmin 0;
-			}
-			.hbspt-form {
+				padding: 50px 20px;
 				max-width: 640px;
 				width: 90%;
-				padding: 20px 0;
+				box-sizing: border-box;
+				margin: auto;
+				background: white;
+			}
+			.hbspt-form {
+				width: 100%;
 			}
 		</style>
 	</head>
 	<body>
-		<picture style="filter: invert(1);">
-			<source srcset="/images/holaplex-logo-white-15-129.webp 1x, /images/holaplex-logo-white-15-258.webp 2x" type="image/webp" media="(max-width:959px)" />
-			<source srcset="/images/holaplex-logo-white-15-129.png 1x, /images/holaplex-logo-white-15-258.png 2x" media="(max-width:959px)" />
-			<source srcset="/images/holaplex-logo-white-15-146.webp 1x, /images/holaplex-logo-white-15-292.webp 2x" type="image/webp" media="(min-width:960px)" />
-			<source srcset="/images/holaplex-logo-white-15-146.png 1x, /images/holaplex-logo-white-15-292.png 2x" media="(min-width:960px)" />
-			<img src="/images/holaplex-logo-white-15-292.png" class="un1 i7" />
-		</picture>
-		<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-		<script>
-			hbspt.forms.create({
-				region: "na1",
-				portalId: "20992751",
-				formId: "3ecc1902-57cb-40fc-a692-3cf8426033d4",
-			});
-		</script>
+		<div class="page-wrapper">
+			<picture style="filter: invert(1)">
+				<source srcset="/images/holaplex-logo-white-15-129.webp 1x, /images/holaplex-logo-white-15-258.webp 2x" type="image/webp" media="(max-width:959px)" />
+				<source srcset="/images/holaplex-logo-white-15-129.png 1x, /images/holaplex-logo-white-15-258.png 2x" media="(max-width:959px)" />
+				<source srcset="/images/holaplex-logo-white-15-146.webp 1x, /images/holaplex-logo-white-15-292.webp 2x" type="image/webp" media="(min-width:960px)" />
+				<source srcset="/images/holaplex-logo-white-15-146.png 1x, /images/holaplex-logo-white-15-292.png 2x" media="(min-width:960px)" />
+				<img src="/images/holaplex-logo-white-15-292.png" class="un1 i7" />
+			</picture>
+			<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+			<script>
+				hbspt.forms.create({
+					region: "na1",
+					portalId: "20992751",
+					formId: "3ecc1902-57cb-40fc-a692-3cf8426033d4",
+				});
+			</script>
+		</div>
 	</body>
 </html>
