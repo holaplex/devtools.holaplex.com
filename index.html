@@ -14,7 +14,7 @@
 		<link rel="preload" href="css/Ubuntu-Bold.woff2" as="font" crossorigin />
 		<link rel="preload" href="css/inlined.css" as="style" />
 		<link rel="stylesheet" href="css/inlined.css" />
-		
+
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 		<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-88b0e2.png" />
 		<meta name="msapplication-TileImage" content="images/mstile-144x144-1d9c2e.png" />
@@ -380,7 +380,7 @@
 			<div class="ps8"></div>
 			<div class="ps42 v2 s53">
 				<div class="v1 ps43 s54 c40">
-					<p class="p2 f19">Copyright &COPY; 2022. All rights reserved.</p>
+					<p class="p2 f19">Copyright &COPY; <span id="currentYear">2022</span>. All rights reserved.</p>
 				</div>
 			</div>
 		</div>
@@ -621,6 +621,11 @@
 						});
 					} catch (t) {}
 			})();
+		</script>
+		<script>
+			try {
+				document.getElementById("currentYear").textContent = new Date().getFullYear();
+			} catch (e) {}
 		</script>
 	</body>
 </html>
