@@ -6,6 +6,7 @@ import Container from "../components/container";
 import Metadata from "../components/metadata";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import Image from "next/image";
 
 const GradientText = styled.h1`
     background: linear-gradient(263.43deg, #528ad5 -19.48%, #ffa2de 120.66%);
@@ -65,7 +66,7 @@ export default function Index() {
 
 			<Section className="text-black bg-white" style={{ backgroundImage: 'radial-gradient(circle at 100% 100%, #F597D4, #ffff 25%, #fff 75%)' }}>
 				<Container>
-					<h1 className="text-black">The Holaplex API</h1>
+					<h1>The Holaplex API</h1>
 					<div className="rounded-xl border p-4 backdrop-blur-lg w-full lg:w-3/5 relative z-50">
 						<div className="flex flex-col gap-5 max-w-sm">
 							<div>✓ Build apps that run fast with low latency</div>
@@ -107,6 +108,56 @@ export default function Index() {
 							</div>
 							&#125;
 						</pre>
+					</div>
+				</Container>
+			</Section>
+
+			<Section className="text-white" style={{ background: '#000929' }}>
+				<Container className="flex lg:flex-row flex-col items-center lg:items-stretch gap-4 text-center justify-around">
+					<div className="border border-gray-600 rounded-xl p-2 max-w-xs w-full">
+						<div className="w-3/5 mx-auto aspect-square">
+							<Image src='/img/cross-protocol.png' width={314} height={300} />
+						</div>
+						<h3 className="text-white font-bold">Cross Protocol Query Interface</h3>
+						<p className="text-gray-200">Query multiple on-chain actions across different Solana programs.</p>
+					</div>
+					<div className="border border-gray-600 rounded-xl p-2 max-w-xs w-full">
+						<div className="w-3/5 mx-auto aspect-square">
+							<Image src='/img/meter.png' width={320} height={320} />
+						</div>
+						<h3 className="text-white font-bold">High Performance</h3>
+						<p className="text-gray-200">Low latency performance with sub millisecond data query of on-chain data and realtime updates.</p>
+					</div>
+					<div className="border border-gray-600 rounded-xl p-2 max-w-xs w-full">
+						<div className="w-3/5 mx-auto aspect-square">
+							<Image src='/img/shield.png' width={330} height={300} />
+						</div>
+						<h3 className="text-white font-bold">Reliable Infrastructure</h3>
+						<p className="text-gray-200">99.9% uptime plus 24 hour support ensures your apps are always working.</p>
+					</div>
+				</Container>
+			</Section>
+			<Section className="text-black bg-white">
+				<Container className="lg:flex items-center gap-4">
+					<div className="lg:w-1/2">
+						<Image src="/img/circuit.png" alt='' width={962} height={698} />
+					</div>
+					<div className="lg:w-1/2">
+						<h1>The Solana NFT API</h1>
+						<p>Get the performance you need to power your on-chain Solana applications</p>
+					</div>
+				</Container>
+			</Section>
+			<Section className="bg-white">
+				<Container>
+					<div className="text-white bg-black rounded-2xl w-full p-6 relative overflow-hidden">
+						<div className="hidden lg:block">
+							<Image src='/img/purple-thing.png' alt='' layout='fill' objectFit="cover" />
+						</div>
+						<div className="w-1/2 relative z-20">
+							<h1 className="mt-0">Want to index your protocol?</h1>
+							<p className="text-gray-200">Be a part of the growing number of protocols indexing with us.</p>
+						</div>
 					</div>
 				</Container>
 			</Section>
