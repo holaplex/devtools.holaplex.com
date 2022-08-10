@@ -24,7 +24,7 @@ export default function Index() {
 
 	return (
 		<Layout theme="theme-primary">
-			<Metadata title={title} description={description} image='/screenshot.jpg' />
+			<Metadata title={title} description={description} image='/img/screenshot.jpg' />
 
 			<Section className="text-white text-center lg:text-left">
 				<div className="flex lg:flex-row flex-col gap-4 p-9 justify-center items-center w-full bg-gradient-to-r from-gradient-blue-100 to-gradient-blue-200">
