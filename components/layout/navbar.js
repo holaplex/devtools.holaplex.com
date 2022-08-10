@@ -15,7 +15,7 @@ const Navbar = () => {
 	return (
 		<div className="bg-base text-content theme-light bg-gradient-to-r from-gradient-blue-100 to-gradient-blue-200">
 			<nav className="max-w-7xl mx-auto w-11/12 px-2 py-4 box-border flex justify-between">
-				<h2 className="my-0 font-semibold">
+				<h2 className="my-0 font-semibold text-white">
 					<SmartLink href="https://www.holaplex.com/">Holaplex</SmartLink>
 					<span className="text-gray-300">
 						{" "}
