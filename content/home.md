@@ -1,4 +1,4 @@
 ---
 title: "DevTools - Holaplex"
-text: "Build better apps on Solana"
+description: "Build better apps on Solana"
 ---

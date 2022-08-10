@@ -20,11 +20,11 @@ const GradientText = styled.h1`
 `;
 
 export default function Index() {
-	const { title } = attributes;
+	const { title, description } = attributes;
 
 	return (
 		<Layout theme="theme-primary">
-			<Metadata title={title} />
+			<Metadata title={title} description={description} image='/screenshot.jpg' />
 
 			<Section className="text-white text-center lg:text-left">
 				<div className="flex lg:flex-row flex-col gap-4 p-9 justify-center items-center w-full bg-gradient-to-r from-gradient-blue-100 to-gradient-blue-200">
