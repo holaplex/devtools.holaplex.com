@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../button";
 import SmartLink from "../smartlink";
 import styled from "@emotion/styled";
+import GetAPIButton from "../getApiButton";
 
 const NavItem = ({ children, href }) => {
 	return (
@@ -23,7 +24,7 @@ const Navbar = () => {
 					</span>
 				</h2>
 				<ul id="navItems" className="hidden md:block">
-					<NavItem href="https://www.holaplex.com/">Learn More</NavItem>
+					<GetAPIButton />
 				</ul>
 			</nav>
 		</div>

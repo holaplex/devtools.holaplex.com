@@ -7,6 +7,7 @@ import Metadata from "../components/metadata";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import Image from "next/image";
+import GetAPIButton from "../components/getApiButton";
 
 const GradientText = styled.h1`
     background: linear-gradient(263.43deg, #528ad5 -19.48%, #ffa2de 120.66%);
@@ -29,9 +30,11 @@ export default function Index() {
 				<div className="flex lg:flex-row flex-col gap-4 p-9 justify-center items-center w-full bg-gradient-to-r from-gradient-blue-100 to-gradient-blue-200">
 					<video src='/img/ball-60fps.mp4' className="aspect-square max-w-md w-full mix-blend-screen" playsInline muted autoPlay loop />
 					<div className="w-full max-w-sm p-4">
-						<GradientText>Build better apps on Solana</GradientText>
+						<GradientText className="mt-0">Build better apps on Solana</GradientText>
 						<p>Performant API to power your Solana blockchain app. Get fast, reliable data easily.</p>
-						<br />
+						<p className="my-4 lg:my-8">
+							<GetAPIButton />
+						</p>
 						<small>Supported Protocols:</small>
 						<div className="flex flex-wrap gap-4 text-center justify-center lg:justify-start">
 							<div className="w-14">
@@ -142,9 +145,12 @@ export default function Index() {
 					<div className="lg:w-1/2">
 						<Image src="/img/circuit.png" alt='' width={962} height={698} />
 					</div>
-					<div className="lg:w-1/2">
-						<h1>The Solana NFT API</h1>
+					<div className="lg:w-1/2 lg:text-left text-center">
+						<h1 className="mt-0">The Solana NFT API</h1>
 						<p>Get the performance you need to power your on-chain Solana applications</p>
+						<p className="mt-4">
+							<GetAPIButton />
+						</p>
 					</div>
 				</Container>
 			</Section>
@@ -154,9 +160,12 @@ export default function Index() {
 						<div className="hidden lg:block">
 							<Image src='/img/purple-thing.png' alt='' layout='fill' objectFit="cover" />
 						</div>
-						<div className="w-1/2 relative z-20">
+						<div className="lg:w-1/2 relative z-20">
 							<h1 className="mt-0">Want to index your protocol?</h1>
 							<p className="text-gray-200">Be a part of the growing number of protocols indexing with us.</p>
+							<p className="mt-4">
+								<GetAPIButton />
+							</p>
 						</div>
 					</div>
 				</Container>
