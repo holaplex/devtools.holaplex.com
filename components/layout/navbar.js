@@ -13,7 +13,7 @@ const NavItem = ({ children, href }) => {
 
 const Navbar = () => {
 	return (
-		<div className="bg-base text-content theme-light bg-gradient-to-r from-header-blue-100 to-header-blue-900">
+		<div className="bg-base text-content theme-light bg-gradient-to-r from-gradient-blue-100 to-gradient-blue-200">
 			<nav className="max-w-7xl mx-auto w-11/12 px-2 py-4 box-border flex justify-between">
 				<h2 className="my-0 font-semibold">
 					<SmartLink href="https://www.holaplex.com/">Holaplex</SmartLink>
