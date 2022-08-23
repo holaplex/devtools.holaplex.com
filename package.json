@@ -9,7 +9,8 @@
 		"build": "npm run generate-config && next build",
 		"start": "npm run generate-config && next start",
 		"export": "npm run build && next export",
-		"generate-config": "node convert-config.mjs"
+		"generate-config": "node convert-config.mjs",
+		"netlify-admin": "npx netlify-cms-proxy-server"
 	},
 	"repository": {
 		"type": "git",
