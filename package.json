@@ -5,10 +5,11 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "next",
-		"build": "next build",
-		"start": "next start",
-		"export": "npm run build && next export"
+		"dev": "npm run generate-config && next",
+		"build": "npm run generate-config && next build",
+		"start": "npm run generate-config && next start",
+		"export": "npm run build && next export",
+		"generate-config": "node convert-config.mjs"
 	},
 	"repository": {
 		"type": "git",
@@ -38,7 +39,8 @@
 		"react-twitter-embed": "^4.0.4",
 		"react-youtube": "^9.0.1",
 		"sass": "^1.50.1",
-		"three": "^0.139.2"
+		"three": "^0.139.2",
+		"yaml": "^2.1.1"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.4",
