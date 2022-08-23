@@ -12,7 +12,13 @@ export default {
 			name: "pages",
 			label: "Pages",
 			folder: "content/pages",
+			create: true,
 			fields: [
+				{
+					label: "Slug",
+					name: "slug",
+					widget: "string",
+				},
 				{
 					label: "Title",
 					name: "title",
